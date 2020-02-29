@@ -1,0 +1,384 @@
+
+\documentclass[border=8pt, multi, tikz]{standalone} 
+\usepackage{import}
+\subimport{../layers/}{init}
+\usetikzlibrary{positioning}
+\usetikzlibrary{3d} %for including external image 
+
+\def\ConvColor{rgb:yellow,5;red,2.5;white,5}
+\def\ConvReluColor{rgb:yellow,5;red,5;white,5}
+\def\PoolColor{rgb:red,1;black,0.3}
+\def\UnpoolColor{rgb:blue,2;green,1;black,0.3}
+\def\FcColor{rgb:blue,5;red,2.5;white,5}
+\def\FcReluColor{rgb:blue,5;red,5;white,4}
+\def\SoftmaxColor{rgb:magenta,5;black,7}   
+
+\newcommand{\copymidarrow}{\tikz \draw[-Stealth,line width=0.8mm,draw={rgb:blue,4;red,1;green,1;black,3}] (-0.3,0) -- ++(0.3,0);}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
+\tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:blue,4;red,1;green,1;black,3},opacity=0.7]
+
+\pic[shift={(0,0,0)}] at (0,0,0) 
+    {Box={
+        name=conv11,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=64,
+        width=1,
+        depth=64
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv11-east) 
+    {Box={
+        name=conv12,
+        caption= ,
+        xlabel={{, }},
+        zlabel=224x224,
+        fill=\ConvColor,
+        height=64,
+        width=1,
+        depth=64
+        }
+    };
+
+\pic[shift={ (3,0,0) }] at (conv12-east) 
+    {Box={
+        name=pool1,
+        caption= ,
+        fill=\PoolColor,
+        opacity=0.5,
+        height=32,
+        width=1,
+        depth=32
+        }
+    };
+
+\draw [connection]  (conv12-east)    -- node {\midarrow} (pool1-west);
+
+\pic[shift={(0,0,0)}] at (pool1-east) 
+    {Box={
+        name=conv21,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=32,
+        width=2,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv21-east) 
+    {Box={
+        name=conv22,
+        caption= ,
+        xlabel={{, }},
+        zlabel=112x112,
+        fill=\ConvColor,
+        height=32,
+        width=2,
+        depth=32
+        }
+    };
+
+\pic[shift={ (2,0,0) }] at (conv22-east) 
+    {Box={
+        name=pool2,
+        caption= ,
+        fill=\PoolColor,
+        opacity=0.5,
+        height=16,
+        width=1,
+        depth=16
+        }
+    };
+
+\draw [connection]  (conv22-east)    -- node {\midarrow} (pool2-west);
+
+\pic[shift={(0,0,0)}] at (pool2-east) 
+    {Box={
+        name=conv31,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=16,
+        width=3,
+        depth=16
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv31-east) 
+    {Box={
+        name=conv32,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=16,
+        width=3,
+        depth=16
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv32-east) 
+    {Box={
+        name=conv33,
+        caption= ,
+        xlabel={{, }},
+        zlabel=64x64,
+        fill=\ConvColor,
+        height=16,
+        width=3,
+        depth=16
+        }
+    };
+
+\pic[shift={ (2,0,0) }] at (conv33-east) 
+    {Box={
+        name=pool3,
+        caption= ,
+        fill=\PoolColor,
+        opacity=0.5,
+        height=8,
+        width=1,
+        depth=8
+        }
+    };
+
+\draw [connection]  (conv33-east)    -- node {\midarrow} (pool3-west);
+
+\pic[shift={(0,0,0)}] at (pool3-east) 
+    {Box={
+        name=conv41,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=8,
+        width=4,
+        depth=8
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv41-east) 
+    {Box={
+        name=conv42,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=8,
+        width=4,
+        depth=8
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv42-east) 
+    {Box={
+        name=conv43,
+        caption= ,
+        xlabel={{, }},
+        zlabel=32x32,
+        fill=\ConvColor,
+        height=8,
+        width=4,
+        depth=8
+        }
+    };
+
+\pic[shift={ (2,0,0) }] at (conv43-east) 
+    {Box={
+        name=pool4,
+        caption= ,
+        fill=\PoolColor,
+        opacity=0.5,
+        height=4,
+        width=1,
+        depth=4
+        }
+    };
+
+\draw [connection]  (conv43-east)    -- node {\midarrow} (pool4-west);
+
+\pic[shift={(0,0,0)}] at (pool4-east) 
+    {Box={
+        name=conv51,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=4,
+        width=5,
+        depth=4
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv51-east) 
+    {Box={
+        name=conv52,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=4,
+        width=5,
+        depth=4
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (conv52-east) 
+    {Box={
+        name=conv53,
+        caption= ,
+        xlabel={{, }},
+        zlabel=16x16,
+        fill=\ConvColor,
+        height=4,
+        width=5,
+        depth=4
+        }
+    };
+
+\pic[shift={ (2,0,0) }] at (conv53-east) 
+    {Box={
+        name=pool5,
+        caption= ,
+        fill=\PoolColor,
+        opacity=0.5,
+        height=2,
+        width=1,
+        depth=2
+        }
+    };
+
+\draw [connection]  (conv53-east)    -- node {\midarrow} (pool5-west);
+
+\pic[shift={(0,0,0)}] at (pool5-east) 
+    {Box={
+        name=conv6,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=2,
+        width=8,
+        depth=2
+        }
+    };
+
+\pic[shift={ (2,0,0) }] at (conv6-east) 
+    {Box={
+        name=block6Up,
+        caption=16x16,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=4,
+        width=1,
+        depth=4
+        }
+    };
+
+\draw [connection]  (conv6-east)    -- node {\midarrow} (block6Up-west);
+
+\pic[shift={ (2,0,0) }] at (block6Up-east) 
+    {Box={
+        name=block5Up,
+        caption=,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=8,
+        width=1,
+        depth=8
+        }
+    };
+
+\pic[shift={(2,0,0)}] at (block5Up-east) 
+    {Box={
+        name=conv4Up,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=4,
+        width=5,
+        depth=4
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (conv4Up-east) 
+    {Box={
+        name=block4Up,
+        caption=,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=8,
+        width=1,
+        depth=8
+        }
+    };
+
+\path (pool4-southeast) -- (pool4-northeast) coordinate[pos=2.0] (pool4-top) ;
+\path (conv4Up-south)  -- (conv4Up-north)  coordinate[pos=2.0] (conv4Up-top) ;
+\draw [copyconnection]  (pool4-northeast)  
+-- node {\copymidarrow}(pool4-top)
+-- node {\copymidarrow}(conv4Up-top)
+-- node {\copymidarrow} (conv4Up-north);
+
+\pic[shift={(2,0,0)}] at (block4Up-east) 
+    {Box={
+        name=conv2Up,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=16,
+        width=5,
+        depth=16
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (conv2Up-east) 
+    {Box={
+        name=block2Up,
+        caption=,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=32,
+        width=1,
+        depth=32
+        }
+    };
+
+\pic[shift={(4,0,0)}] at (block2Up-east) 
+    {Box={
+        name=conv1Up,
+        caption= ,
+        xlabel={{, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=32,
+        width=5,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (conv1Up-east) 
+    {Box={
+        name=block1Up,
+        caption=,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=64,
+        width=1,
+        depth=64
+        }
+    };
+
+\end{tikzpicture}
+\end{document}
