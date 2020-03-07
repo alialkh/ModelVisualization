@@ -6,10 +6,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{RightBandedBox/.pic={\tikzset{/block/.cd,#1}
                 
-        \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fill]
-        
-        \tikzstyle{band}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\bandopacity, pic actions,fill=\bandfill,draw=\bandfill]
-        
+        \tikzstyle{box}=[every edge/.append style={pic actions, opacity=1},fill opacity=\opacity, fill=\fill]
+
+        \tikzstyle{band}=[every edge/.append style={pic actions, opacity=0},fill opacity=\bandopacity, fill=\bandfill,draw=\bandfill]
+
         \pgfmathsetmacro{\y}{\cubey*\scale}
         \pgfmathsetmacro{\z}{\cubez*\scale}
 
@@ -32,32 +32,19 @@
             \coordinate (h)     at (\k-\x   , \y/2 ,-\z/2); 
             \coordinate (hrt)   at (\k-\x/3 , \y/2 ,-\z/2); %h_right_third
             
-            %fill box color 			
-            \draw [box] 
-                (d) -- (a) -- (b) -- (c) -- cycle     
-                (d) -- (a) -- (h) -- (e) -- cycle;
-            %dotted edges
+            %fill box color
             \draw [box]
-                (f) edge (g)
-                (b) edge (g)
-                (h) edge (g);
-            %fill band color    
-            \draw [band] 
-                (d) -- (art) -- (brt) -- (c) -- cycle     
-                (d) -- (art) -- (hrt) -- (e) -- cycle;
-            %draw edges again which were covered by band
-            \draw [box,fill opacity=0] 
-                (d) -- (a) -- (b) -- (c) -- cycle     
-                (d) -- (a) -- (h) -- (e) -- cycle;            
+                (d) -- (a) -- (b) -- (c) -- cycle
+                (d) -- (a) -- (h) -- (e) -- cycle;
             	
             \path (b) edge ["\xlabel"',midway] (c);
             
             \xdef\LastEastx{\k} %\k persists as \LastEastx after loop 
         }%Loop ends
         \draw [box] (d) -- (e) -- (f) -- (c) -- cycle; %East face of last box
-        \draw [band] (d) -- (e) -- (f) -- (c) -- cycle; %East face of last box 
-        \draw [pic actions] (d) -- (e) -- (f) -- (c) -- cycle; %East face edges of last box     
-        
+        \draw [band] (d) -- (e) -- (f) -- (c) -- cycle; %East face of last box
+        \draw [pic actions] (d) -- (e) -- (f) -- (c) -- cycle; %East face edges of last box
+
         \coordinate (a1) at (0 , \y/2 , \z/2);
         \coordinate (b1) at (0 ,-\y/2 , \z/2);
         \tikzstyle{depthlabel}=[pos=0,text width=14*\z,text centered,sloped]       
@@ -116,8 +103,8 @@
     bandopacity/.store  in=\bandopacity,
     fill={rgb:red,5;green,5;blue,5;white,15},
     bandfill={rgb:red,5;green,5;blue,5;white,5},
-    opacity=0.4,
-    bandopacity=0.6,
+    opacity=1.0,
+    bandopacity=0,
     width=2,
     height=13,
     depth=15,
@@ -128,3 +115,5 @@
     caption=,
     name=,
 }
+
+% changing the opacity let the conv blocks get filled

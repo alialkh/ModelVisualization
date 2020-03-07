@@ -54,28 +54,39 @@ arch = [
 
     
     #block6 upsample
-    to_UnPool("block6Up", caption="16x16",  offset="(2,0,0)", to="(conv6-east)", height=4,depth=4,width=1),
+    to_UnPool("block6Up", caption="16x16",  offset="(2,0,0)", to="(conv6-east)", height=4,depth=4,width=6, opacity=1),
     
     to_connection("conv6","block6Up"),
 
     #block5 upsample
-    to_UnPool("block5Up", caption="",  offset="(2,0,0)", to="(block6Up-east)", height=8,depth=8,width=1),
+    to_UnPool("block5Up", caption="",  offset="(2,0,0)", to="(block6Up-east)", height=8,depth=8,width=5, opacity=1),
+
+    to_skip('pool4', 'block5Up', pos="2"),
+
+    to_connection("block6Up","block5Up"),
 
     #block 4 has a convolution then upsampling by factor of 
-    to_Conv("conv4Up",'','', offset="(2,0,0)", to="(block5Up-east)", height=4,depth=4,width=5),
-    to_UnPool("block4Up", caption="",  offset="(0,0,0)", to="(conv4Up-east)", height=8,depth=8,width=1),
-    to_skip('pool4', 'conv4Up', pos="2.0"),
+    to_Conv("conv4Up",'','', offset="(2.5,0,0)", to="(block5Up-east)", height=8,depth=8,width=4),
+
+    to_connection("block5Up", "conv4Up"),
+
+    to_UnPool("block4Up", caption="",  offset="(0.5,0,0)", to="(conv4Up-east)", height=16,depth=16,width=3, opacity=1),
+    to_skip('pool3', 'conv4Up', pos="2.5"),
 
     #block 2 conv then upsampling ### MUST CONNECT THIS TO BLOCK 3 UPSAMPLING ### 
-    to_Conv("conv2Up",'','', offset="(2,0,0)", to="(block4Up-east)", height=16,depth=16,width=5),
-    to_UnPool("block2Up", caption="",  offset="(0,0,0)", to="(conv2Up-east)", height=32,depth=32,width=1),
-    
-    to_Conv("conv1Up",'','', offset="(4,0,0)", to="(block2Up-east)", height=32,depth=32,width=5),
-    to_UnPool("block1Up", caption="",  offset="(0,0,0)", to="(conv1Up-east)", height=64,depth=64,width=1),
+    to_Conv("conv2Up",'','', offset="(3,0,0)", to="(block4Up-east)", height=16,depth=16,width=3),
+    to_UnPool("block2Up", caption="",  offset="(1.5,0,0)", to="(conv2Up-east)", height=32,depth=32,width=2, opacity=1),
 
+    to_connection("block4Up", "conv2Up"),
+    to_skip('pool2', 'conv2Up', pos="2.0"),
 
+    to_Conv("conv1Up",'','', offset="(6,0,0)", to="(block2Up-east)", height=32,depth=32,width=2),
+    to_UnPool("block1Up", caption="",  offset="(3,0,0)", to="(conv1Up-east)", height=64,depth=64,width=1, opacity=1),
 
- #   to_Conv("conv2", 128, 64, offset="(1,0,0)", to="(pool3-east)", height=32, depth=32, width=2 ),
+    to_connection("block2Up", "conv1Up"),
+    to_skip('pool1', 'conv1Up', pos="1.75"),
+
+    #   to_Conv("conv2", 128, 64, offset="(1,0,0)", to="(pool3-east)", height=32, depth=32, width=2 ),
  #   to_Pool("pool2", offset="(0,0,0)", to="(conv2-east)", height=28, depth=28, width=1),
  #   to_SoftMax("soft1", 10 ,"(3,0,0)", "(pool1-east)", caption="SOFT"  ),
  #   to_connection("pool2", "soft1"),
