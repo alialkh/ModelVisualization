@@ -9,7 +9,7 @@ arch = [
     to_begin(),
 
     ##### would include input image here #####
-   to_input('8.jpg', to='(-3,0,0)', height=14.5),
+   to_input('0.jpg', to='(-3,0,0)', height=14.5),
 
     # block 1
     # 224x224
@@ -91,7 +91,7 @@ arch = [
     to_connection("block2Up", "conv1Up"),
     to_skip('pool1', 'conv1Up', pos="1.75"),
 
-    to_input('8_prediction.jpg', to='(block1Up-east)', height=13.20, width=12),
+    to_input('0_prediction.jpg', to='(block1Up-east)', height=13.20, width=12),
 
     #   to_Conv("conv2", 128, 64, offset="(1,0,0)", to="(pool3-east)", height=32, depth=32, width=2 ),
  #   to_Pool("pool2", offset="(0,0,0)", to="(conv2-east)", height=28, depth=28, width=1),
