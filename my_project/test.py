@@ -9,7 +9,7 @@ arch = [
     to_begin(),
 
     ##### would include input image here #####
-   to_input('0.jpg', to='(-3,0,0)', height=14.5),
+   to_input('0.jpg', to='(-2.5,0,0)', height=14.5),
 
     # block 1
     # 224x224
