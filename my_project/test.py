@@ -9,7 +9,7 @@ arch = [
     to_begin(),
 
     ##### would include input image here #####
-#    to_input()
+   to_input('8.jpg', to='(-3,0,0)', height=14.5),
 
     # block 1
     # 224x224
@@ -65,16 +65,15 @@ arch = [
     to_connection("conv6","block6Up"),
 
     #block5 upsample
-    to_UnPool("block5Up", caption="",  offset="(2,0,0)", to="(block6Up-east)", height=8,depth=8,width=5, opacity=1),
+    to_UnPool("block5Up", caption="",  offset="(-1,-3,0)", to="(conv6-south)", height=8,depth=8,width=5, opacity=1),
 
-    # to_skip('pool4', 'block5Up', pos="2"),
 
-    to_connection("block6Up","block5Up"),
+    # to_connection("conv53","block5Up"),
 
-    #block 4 has a convolution then upsampling by factor of 
-    to_Conv("conv4Up",'','', offset="(2.5,0,0)", to="(block5Up-east)", height=8,depth=8,width=4),
-
-    to_connection("block5Up", "conv4Up"),
+    #block 4 has a convolution then upsampling, is connected to BLOCK6UP not BLOCK5 which is added
+    to_Conv("conv4Up",'','', offset="(2.5,0,0)", to="(block6Up-east)", height=8,depth=8,width=4),
+    to_connection("block6Up", "conv4Up"),
+    # to_connection("block5Up", "conv4Up"),
 
     to_UnPool("block4Up", caption="",  offset="(0.5,0,0)", to="(conv4Up-east)", height=16,depth=16,width=3, opacity=1),
     to_skip('pool3', 'conv4Up', pos="2.5"),
@@ -91,6 +90,8 @@ arch = [
 
     to_connection("block2Up", "conv1Up"),
     to_skip('pool1', 'conv1Up', pos="1.75"),
+
+    to_input('8_prediction.jpg', to='(block1Up-east)', height=13.20, width=12),
 
     #   to_Conv("conv2", 128, 64, offset="(1,0,0)", to="(pool3-east)", height=32, depth=32, width=2 ),
  #   to_Pool("pool2", offset="(0,0,0)", to="(conv2-east)", height=28, depth=28, width=1),
