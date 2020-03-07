@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_project/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycore/tikzeng.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycore/tikzeng.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tikzmake.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tikzmake.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
       <workItem from="1582958633075" duration="1855000" />
       <workItem from="1582960932349" duration="5000" />
       <workItem from="1583552179244" duration="1544000" />
-      <workItem from="1583554117230" duration="4241000" />
+      <workItem from="1583554117230" duration="9049000" />
     </task>
     <servers />
   </component>
