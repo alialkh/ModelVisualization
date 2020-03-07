@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="776fe343-0ed9-4619-bd19-7a1b6f20e48a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/plotneuralnet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/plotneuralnet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Box.sty" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Box.sty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/RightBandedBox.sty" beforeDir="false" afterPath="$PROJECT_DIR$/layers/RightBandedBox.sty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_project/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tikzmake.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tikzmake.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +41,7 @@
       <workItem from="1582958633075" duration="1855000" />
       <workItem from="1582960932349" duration="5000" />
       <workItem from="1583552179244" duration="1544000" />
-      <workItem from="1583554117230" duration="2825000" />
+      <workItem from="1583554117230" duration="4241000" />
     </task>
     <servers />
   </component>
