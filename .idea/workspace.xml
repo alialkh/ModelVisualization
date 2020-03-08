@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="776fe343-0ed9-4619-bd19-7a1b6f20e48a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Box.sty" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Box.sty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_project/pastRuns/pastRun.tex" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/pastRuns/pastRun.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_project/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_project/test.tex" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pycore/tikzeng.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycore/tikzeng.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tikzmake.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tikzmake.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tikzmakeNoPython.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tikzmakeNoPython.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
       <workItem from="1582958633075" duration="1855000" />
       <workItem from="1582960932349" duration="5000" />
       <workItem from="1583552179244" duration="1544000" />
-      <workItem from="1583554117230" duration="9049000" />
+      <workItem from="1583554117230" duration="15577000" />
     </task>
     <servers />
   </component>
@@ -67,9 +70,9 @@
       <screen x="55" y="27" width="1625" height="1023" />
     </state>
     <state x="523" y="366" key="com.intellij.ide.util.TipDialog/55.27.1625.1023@55.27.1625.1023" timestamp="1583554122221" />
-    <state x="515" y="104" width="704" height="867" key="find.popup" timestamp="1583552226377">
+    <state x="515" y="104" width="863" height="867" key="find.popup" timestamp="1583634625775">
       <screen x="55" y="27" width="1625" height="1023" />
     </state>
-    <state x="515" y="104" width="704" height="867" key="find.popup/55.27.1625.1023@55.27.1625.1023" timestamp="1583552226377" />
+    <state x="515" y="104" width="863" height="867" key="find.popup/55.27.1625.1023@55.27.1625.1023" timestamp="1583634625775" />
   </component>
 </project>

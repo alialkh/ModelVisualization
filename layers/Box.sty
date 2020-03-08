@@ -6,7 +6,9 @@
 % used to be 0.7 opacity
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{Box/.pic={\tikzset{/boxblock/.cd,#1}
-        \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=1},fill opacity=\opacity, pic actions,fill=\fill]
+% inside the style here, set the opacity >0 to set internal lines
+% also, you can add to the styles an attribute about the internal lines, densely dashed, etc ...
+        \tikzstyle{box}=[every edge/.append style={pic actions, opacity=0},fill opacity=\opacity, pic actions,fill=\fill]
         
         \pgfmathsetmacro{\y}{\cubey*\scale}
         \pgfmathsetmacro{\z}{\cubez*\scale}

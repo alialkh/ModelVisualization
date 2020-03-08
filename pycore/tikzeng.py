@@ -34,15 +34,10 @@ def to_begin():
 
 # layers definition
 
-def to_input( pathfile, to='(-3,0,0)', width=8, height=8, name="temp" ):
+def to_input( pathfile, to='(-3,0,0)', width=8, height=8, angle=0, name="temp" ):
     return r"""
-\node[canvas is zy plane at x=0] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""]{"""+ pathfile +"""}};
-"""
-
-
-def to_output( pathfile, to='(-3,0,0)', offset='0', width=8, height=8, name="temp" ):
-    return r"""
-\node[canvas is zy plane at x=1] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""]{"""+ pathfile +"""}};
+\node[canvas is zy plane at x=0] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""
+,angle="""+ str(angle)+""",origin=c]{"""+ pathfile +"""}};
 """
 
 # Conv

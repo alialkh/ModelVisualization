@@ -20,9 +20,10 @@
 \tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
 \tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:blue,4;red,1;green,1;black,3},opacity=0.7]
 
-\node[canvas is zy plane at x=0] (temp) at (-2.5,0,0) {\includegraphics[width=8cm,height=14.5cm,angle=180,origin=c]{0.jpg}};
+\node[canvas is zy plane at x=0] (temp) at (-2.5,0,0) {\includegraphics[width=8cm,height=14.5cm
+,angle=180,origin=c]{0.jpg}};
 
-\pic[shift={(0,0,0)}] at (0,0,0) 
+\pic[shift={(0.30,0,0)}] at (0,0,0) 
     {Box={
         name=conv11,
         caption= ,
@@ -35,7 +36,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv11-east) 
+\pic[shift={(0.30,0,0)}] at (conv11-east) 
     {Box={
         name=conv12,
         caption= ,
@@ -48,12 +49,12 @@
         }
     };
 
-\pic[shift={ (3,0,0) }] at (conv12-east) 
+\pic[shift={ (4,0,0) }] at (conv12-east) 
     {Box={
         name=pool1,
         caption= ,
         fill=\PoolColor,
-        opacity=0.5,
+        opacity=1,
         height=32,
         width=1,
         depth=32
@@ -62,7 +63,7 @@
 
 \draw [connection]  (conv12-east)    -- node {\midarrow} (pool1-west);
 
-\pic[shift={(0,0,0)}] at (pool1-east) 
+\pic[shift={(0.25,0,0)}] at (pool1-east) 
     {Box={
         name=conv21,
         caption= ,
@@ -75,7 +76,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv21-east) 
+\pic[shift={(0.25,0,0)}] at (conv21-east) 
     {Box={
         name=conv22,
         caption= ,
@@ -93,7 +94,7 @@
         name=pool2,
         caption= ,
         fill=\PoolColor,
-        opacity=0.5,
+        opacity=1,
         height=16,
         width=1,
         depth=16
@@ -102,7 +103,7 @@
 
 \draw [connection]  (conv22-east)    -- node {\midarrow} (pool2-west);
 
-\pic[shift={(0,0,0)}] at (pool2-east) 
+\pic[shift={(0.175,0,0)}] at (pool2-east) 
     {Box={
         name=conv31,
         caption= ,
@@ -115,7 +116,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv31-east) 
+\pic[shift={(0.175,0,0)}] at (conv31-east) 
     {Box={
         name=conv32,
         caption= ,
@@ -128,7 +129,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv32-east) 
+\pic[shift={(0.175,0,0)}] at (conv32-east) 
     {Box={
         name=conv33,
         caption= ,
@@ -146,7 +147,7 @@
         name=pool3,
         caption= ,
         fill=\PoolColor,
-        opacity=0.5,
+        opacity=1,
         height=8,
         width=1,
         depth=8
@@ -155,7 +156,7 @@
 
 \draw [connection]  (conv33-east)    -- node {\midarrow} (pool3-west);
 
-\pic[shift={(0,0,0)}] at (pool3-east) 
+\pic[shift={(0.15,0,0)}] at (pool3-east) 
     {Box={
         name=conv41,
         caption= ,
@@ -168,7 +169,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv41-east) 
+\pic[shift={(0.15,0,0)}] at (conv41-east) 
     {Box={
         name=conv42,
         caption= ,
@@ -181,7 +182,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv42-east) 
+\pic[shift={(0.15,0,0)}] at (conv42-east) 
     {Box={
         name=conv43,
         caption= ,
@@ -199,7 +200,7 @@
         name=pool4,
         caption= ,
         fill=\PoolColor,
-        opacity=0.5,
+        opacity=1,
         height=4,
         width=1,
         depth=4
@@ -208,7 +209,7 @@
 
 \draw [connection]  (conv43-east)    -- node {\midarrow} (pool4-west);
 
-\pic[shift={(0,0,0)}] at (pool4-east) 
+\pic[shift={(0.15,0,0)}] at (pool4-east) 
     {Box={
         name=conv51,
         caption= ,
@@ -221,7 +222,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv51-east) 
+\pic[shift={(0.15,0,0)}] at (conv51-east) 
     {Box={
         name=conv52,
         caption= ,
@@ -234,7 +235,7 @@
         }
     };
 
-\pic[shift={(0,0,0)}] at (conv52-east) 
+\pic[shift={(0.15,0,0)}] at (conv52-east) 
     {Box={
         name=conv53,
         caption= ,
@@ -252,7 +253,7 @@
         name=pool5,
         caption= ,
         fill=\PoolColor,
-        opacity=0.5,
+        opacity=1,
         height=2,
         width=1,
         depth=2
@@ -261,7 +262,7 @@
 
 \draw [connection]  (conv53-east)    -- node {\midarrow} (pool5-west);
 
-\pic[shift={(0,0,0)}] at (pool5-east) 
+\pic[shift={(0.05,0,0)}] at (pool5-east) 
     {Box={
         name=conv6,
         caption= ,
@@ -280,20 +281,21 @@
         caption=,
         fill=\UnpoolColor,
         opacity=1,
-        height=4,
-        width=6,
-        depth=4
+        height=8,
+        width=5,
+        depth=8
         }
     };
 
 \draw [connection]  (conv6-east)    -- node {\midarrow} (block6Up-west);
 
-\pic[shift={ (-1,-3,0) }] at (conv6-south) 
+\pic[shift={(-1,-3,0)}] at (conv6-south) 
     {Box={
         name=block5Up,
         caption=,
-        fill=\UnpoolColor,
-        opacity=1,
+        xlabel={{64, }},
+        zlabel=256,
+        fill=\ConvColor,
         height=8,
         width=5,
         depth=8
@@ -402,7 +404,8 @@
 -- node {\copymidarrow}(conv1Up-top)
 -- node {\copymidarrow} (conv1Up-north);
 
-\node[canvas is zy plane at x=0] (temp) at (block1Up-east) {\includegraphics[width=12cm,height=13.2cm,angle=180,origin=c]{0_prediction.jpg}};
+\node[canvas is zy plane at x=0] (temp) at (block1Up-east) {\includegraphics[width=12.25cm,height=12.85cm
+,angle=180,origin=c]{0_prediction.jpg}};
 
 \end{tikzpicture}
 \end{document}
