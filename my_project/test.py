@@ -62,28 +62,28 @@ arch = [
     # 16x16
     to_UnPool("block6Up", caption="",  offset="(2,0,0)", to="(conv6-east)", height=8,depth=8,width=5, opacity=1),
     
-    to_connection("conv6","block6Up"),
+    to_connection("conv6", "block6Up"),
 
     #block5 upsample
-    to_Conv("block5Up", caption="",  offset="(-1,-3,0)", to="(conv6-south)", height=8,depth=8,width=5,),
+    to_Conv("block5Up", caption="",  offset="(-3,-3,0)", to="(conv6-south)", height=8,depth=8,width=5,),
 
+    to_Conv("block4Up", caption="",  offset="(-2, 3,0)", to="(conv6-north)", height=4,depth=4,width=6,),
+    to_UnPool("block4Up", caption="", offset="(0.25,0,0)", to="(block4Up-east)", height=8, depth=8, width=5, opacity=1),
 
-    # to_connection("conv53","block5Up"),
-
-    #block 4 has a convolution then upsampling, is connected to BLOCK6UP not BLOCK5 which is added
+ #block 4 has a convolution then upsampling, is connected to BLOCK6UP not BLOCK5 which is added
     to_Conv("conv4Up",'','', offset="(2.5,0,0)", to="(block6Up-east)", height=8,depth=8,width=4),
-    to_connection("block6Up", "conv4Up"),
-    # to_connection("block5Up", "conv4Up"),
-
     to_UnPool("block4Up", caption="",  offset="(0.5,0,0)", to="(conv4Up-east)", height=16,depth=16,width=3, opacity=1),
-    to_skip('pool3', 'conv4Up', pos="2.5"),
+
+    to_connection("block6Up", "conv4Up"),
+
+ # to_skip('pool3', 'conv4Up', pos="2.5"),
 
     #block 2 conv then upsampling ### MUST CONNECT THIS TO BLOCK 3 UPSAMPLING ### 
     to_Conv("conv2Up",'','', offset="(3,0,0)", to="(block4Up-east)", height=16,depth=16,width=3),
     to_UnPool("block2Up", caption="",  offset="(1.5,0,0)", to="(conv2Up-east)", height=32,depth=32,width=2, opacity=1),
 
     to_connection("block4Up", "conv2Up"),
-    to_skip('pool2', 'conv2Up', pos="2.0"),
+    to_skip('pool2', 'conv2Up', pos="2.5"),
 
     to_Conv("conv1Up",'','', offset="(6,0,0)", to="(block2Up-east)", height=32,depth=32,width=2),
     to_UnPool("block1Up", caption="",  offset="(3,0,0)", to="(conv1Up-east)", height=64,depth=64,width=1, opacity=1),
